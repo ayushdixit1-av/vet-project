@@ -18,6 +18,73 @@ A comprehensive full-stack veterinary knowledge and education platform built wit
 - **SEO & Analytics** — Built-in SEO metadata management and page view/search analytics
 - **Search** — Full-text search across knowledge base, articles, medicines, and more
 
+## Architecture
+
+```mermaid
+graph TB
+    subgraph Client["Client Layer"]
+        direction TB
+        React["React 19 + TypeScript + Vite"]
+        Public["Legacy HTML Pages<br/>(Public/)"]
+        AdminPanel["Admin Panel<br/>(18 Components)"]
+        Pages["Public Pages<br/>(18 Page Components)"]
+        Components["Shared Components<br/>(12 UI Components)"]
+    end
+
+    subgraph Server["Server Layer"]
+        direction TB
+        Express["Express.js Server<br/>(Port 5000)"]
+        Middleware["Middleware<br/>Auth · Admin · Credits · Rate Limit · Helmet"]
+        Routes["Routes<br/>(32 Route Files)"]
+        Controllers["Controllers<br/>(31 Controllers)"]
+    end
+
+    subgraph Services["External Services"]
+        direction TB
+        Firebase["Firebase Auth<br/>& Admin SDK"]
+        Groq["Groq AI<br/>(VetBot Chat)"]
+        Razorpay["Razorpay<br/>(Payments)"]
+    end
+
+    subgraph Database["Database Layer"]
+        DB[("PostgreSQL<br/>(Neon)")]
+        Schema["30+ Tables<br/>Users · Courses · Knowledge Base<br/>Notes · Tests · Blogs<br/>Payments · Credits · Analytics"]
+    end
+
+    subgraph Storage["File Storage"]
+        Media["Media Library<br/>(Uploads)"]
+        PDFs["PDF Documents<br/>(Watermarked)"]
+    end
+
+    React --> Express
+    Public --> Express
+    Express --> Middleware
+    Middleware --> Routes
+    Routes --> Controllers
+    Controllers --> DB
+    Controllers --> Firebase
+    Controllers --> Groq
+    Controllers --> Razorpay
+    Controllers --> Media
+    Controllers --> PDFs
+    AdminPanel --> React
+    Pages --> React
+    Components --> Pages
+    Components --> AdminPanel
+    DB --> Schema
+
+    classDef client fill:#1a73e8,color:#fff,stroke:#0d47a1
+    classDef server fill:#e65100,color:#fff,stroke:#bf360c
+    classDef external fill:#2e7d32,color:#fff,stroke:#1b5e20
+    classDef db fill:#6a1b9a,color:#fff,stroke:#4a148c
+    classDef storage fill:#00838f,color:#fff,stroke:#006064
+    class React,Public,AdminPanel,Pages,Components client
+    class Express,Middleware,Routes,Controllers server
+    class Firebase,Groq,Razorpay external
+    class DB,Schema db
+    class Media,PDFs storage
+```
+
 ## Tech Stack
 
 ### Backend
