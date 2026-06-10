@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veterinary Medicines Database - VetCrack</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .med-hero {
+      padding: 120px 20px 60px;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,255,136,0.05) 0%, transparent 70%);
+      position: relative;
+    }
+    .med-hero h1 { font-size: clamp(28px, 4vw, 42px); margin-bottom: 12px; }
+    .med-hero p { color: var(--text-secondary); font-size: 16px; margin-bottom: 32px; }
+    .med-search-wrap {
+      max-width: 600px; margin: 0 auto;
+      display: flex; gap: 0;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .med-search-wrap:focus-within { border-color: var(--accent-primary); }
+    .med-search-wrap input {
+      flex: 1; padding: 16px 20px;
+      background: transparent; border: none;
+      color: var(--text-primary); font-size: 16px;
+      outline: none;
+    }
+    .med-search-wrap input::placeholder { color: rgba(255,255,255,0.3); }
+    .med-search-wrap button {
+      padding: 16px 24px; background: transparent;
+      border: none; color: var(--accent-primary);
+      cursor: pointer; font-size: 18px;
+      border-left: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.3s;
+    }
+    .med-search-wrap button:hover { background: rgba(0,255,136,0.08); }
+    .med-filters {
+      display: flex; gap: 10px; justify-content: center;
+      flex-wrap: wrap; margin-top: 20px;
+    }
+    .med-filter-btn {
+      padding: 6px 16px; border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--text-secondary); font-size: 13px;
+      cursor: pointer; transition: all 0.3s;
+    }
+    .med-filter-btn:hover, .med-filter-btn.active {
+      background: rgba(0,255,136,0.1);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+    .med-count {
+      text-align: center; font-size: 14px;
+      color: var(--text-secondary); padding: 8px 0 4px;
+    }
+    .med-grid {
+      max-width: 900px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 12px;
+      padding: 0 20px 80px;
+    }
+    .med-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px; overflow: hidden;
+      transition: all 0.3s; cursor: pointer;
+    }
+    .med-card:hover {
+      border-color: rgba(0,255,136,0.2);
+      background: rgba(255,255,255,0.05);
+    }
+    .med-card-header {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 16px 20px;
+      gap: 12px;
+    }
+    .med-card-header .med-name {
+      font-weight: 600; font-size: 16px;
+      color: var(--text-primary);
+    }
+    .med-card-header .med-generic {
+      font-size: 13px; color: var(--text-secondary);
+    }
+    .med-card-header .med-cat {
+      font-size: 11px; padding: 3px 10px;
+      border-radius: 4px; background: rgba(0,255,136,0.08);
+      color: var(--accent-primary); white-space: nowrap;
+      font-weight: 500; text-transform: uppercase; letter-spacing: 0.3px;
+    }
+    .med-card-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 20px;
+      background: rgba(0,0,0,0.12);
+    }
+    .med-card.open .med-card-body {
+      max-height: 600px; padding: 16px 20px 20px;
+    }
+    .med-card-body .med-section {
+      margin-bottom: 12px;
+    }
+    .med-card-body .med-section:last-child { margin-bottom: 0; }
+    .med-card-body .med-section strong {
+      font-size: 12px; color: var(--accent-primary);
+      text-transform: uppercase; letter-spacing: 0.5px;
+      display: block; margin-bottom: 3px;
+    }
+    .med-card-body .med-section p {
+      font-size: 14px; color: rgba(255,255,255,0.6);
+      line-height: 1.6; margin: 0;
+    }
+    .med-card-body .med-tags {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px;
+    }
+    .med-card-body .med-tags span {
+      font-size: 11px; padding: 2px 8px;
+      background: rgba(0,204,255,0.08);
+      color: var(--accent-secondary); border-radius: 4px;
+    }
+    .med-chevron {
+      transition: transform 0.3s;
+      color: var(--accent-primary); font-size: 12px;
+      margin-left: auto; flex-shrink: 0;
+    }
+    .med-card.open .med-chevron { transform: rotate(180deg); }
+    .med-empty {
+      text-align: center; padding: 60px 20px;
+      color: var(--text-secondary);
+    }
+    .med-empty i { font-size: 40px; opacity: 0.3; margin-bottom: 16px; }
+    .loader {
+      text-align: center; padding: 60px 0;
+      color: var(--text-secondary);
+    }
+    @media (max-width: 640px) {
+      .med-card-header { flex-direction: column; align-items: flex-start; }
+      .med-card-header .med-cat { align-self: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo"><i class="fas fa-paw"></i> VetCrack</a>
+      <div class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/pages/login.html">Login</a></li>
+        <li><a href="/pages/register.html">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="med-hero">
+    <h1><i class="fas fa-capsules" style="color:var(--accent-primary);margin-right:12px;"></i>Veterinary <span class="gradient-text">Medicines</span></h1>
+    <p>Comprehensive database of veterinary drugs, dosages, and clinical information</p>
+    <div class="med-search-wrap">
+      <input type="text" id="medSearch" placeholder="Search medicines by name, generic, brand, or indication..." autofocus>
+      <button onclick="searchMedicines()"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="med-filters" id="medFilters">
+      <button class="med-filter-btn active" data-cat="">All</button>
+      <button class="med-filter-btn" data-cat="Antibiotic">Antibiotics</button>
+      <button class="med-filter-btn" data-cat="Anti-inflammatory">Anti-inflammatory</button>
+      <button class="med-filter-btn" data-cat="Antiparasitic">Antiparasitic</button>
+      <button class="med-filter-btn" data-cat="Antifungal">Antifungal</button>
+      <button class="med-filter-btn" data-cat="Antiviral">Antiviral</button>
+      <button class="med-filter-btn" data-cat="Anaesthesia">Anaesthesia</button>
+      <button class="med-filter-btn" data-cat="Hormone">Hormones</button>
+      <button class="med-filter-btn" data-cat="Vitamin">Vitamins</button>
+      <button class="med-filter-btn" data-cat="Vaccine">Vaccines</button>
+      <button class="med-filter-btn" data-cat="Fluid">Fluids</button>
+    </div>
+  </section>
+
+  <div class="med-count" id="medCount"></div>
+  <div class="med-grid" id="medGrid">
+    <div class="loader"><i class="fas fa-spinner fa-spin"></i> Loading medicines...</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 VetCrack. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    let allMedicines = [];
+    let currentSearch = '';
+    let currentCategory = '';
+
+    async function loadMedicines() {
+      const grid = document.getElementById('medGrid');
+      try {
+        const params = new URLSearchParams();
+        if (currentSearch) params.set('search', currentSearch);
+        if (currentCategory) params.set('category', currentCategory);
+        const res = await fetch(`/api/medicines?${params}`);
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error);
+        allMedicines = data.medicines || [];
+        renderMedicines();
+      } catch (err) {
+        grid.innerHTML = `<div class="med-empty"><i class="fas fa-exclamation-triangle"></i><p>Failed to load medicines: ${err.message}</p></div>`;
+      }
+    }
+
+    function renderMedicines() {
+      const grid = document.getElementById('medGrid');
+      const count = document.getElementById('medCount');
+      if (!allMedicines.length) {
+        grid.innerHTML = '<div class="med-empty"><i class="fas fa-capsules"></i><p>No medicines found</p></div>';
+        count.textContent = '';
+        return;
+      }
+      count.textContent = `${allMedicines.length} medicine${allMedicines.length > 1 ? 's' : ''} found`;
+      grid.innerHTML = allMedicines.map(m => {
+        const species = (m.species || '').split(',').map(s => s.trim()).filter(Boolean);
+        return `
+          <div class="med-card" onclick="toggleMed(this)">
+            <div class="med-card-header">
+              <div>
+                <div class="med-name">${m.name}</div>
+                ${m.generic_name ? `<div class="med-generic"><i>${m.generic_name}</i></div>` : ''}
+              </div>
+              ${m.category ? `<span class="med-cat">${m.category}</span>` : ''}
+              <span class="med-chevron"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="med-card-body">
+              ${m.description ? `<div class="med-section"><strong>Description</strong><p>${m.description}</p></div>` : ''}
+              ${m.dosage ? `<div class="med-section"><strong>Dosage</strong><p>${m.dosage}</p></div>` : ''}
+              ${m.indications ? `<div class="med-section"><strong>Indications</strong><p>${m.indications}</p></div>` : ''}
+              ${m.contraindications ? `<div class="med-section"><strong>Contraindications</strong><p>${m.contraindications}</p></div>` : ''}
+              ${m.side_effects ? `<div class="med-section"><strong>Side Effects</strong><p>${m.side_effects}</p></div>` : ''}
+              ${m.brand_names ? `<div class="med-section"><strong>Brand Names</strong><p>${m.brand_names}</p></div>` : ''}
+              ${species.length ? `<div class="med-section"><div class="med-tags">${species.map(s => `<span>${s}</span>`).join('')}</div></div>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function toggleMed(el) {
+      el.classList.toggle('open');
+    }
+
+    function searchMedicines() {
+      currentSearch = document.getElementById('medSearch').value.trim();
+      loadMedicines();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadMedicines();
+
+      document.getElementById('medSearch').addEventListener('input', (e) => {
+        currentSearch = e.target.value.trim();
+        loadMedicines();
+      });
+
+      document.getElementById('medFilters').addEventListener('click', (e) => {
+        const btn = e.target.closest('.med-filter-btn');
+        if (!btn) return;
+        document.querySelectorAll('.med-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.dataset.cat;
+        loadMedicines();
+      });
+    });
+  </script>
+</body>
+</html>

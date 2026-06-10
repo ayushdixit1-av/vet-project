@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category - VetCrack Notes</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .notes-hero {
+      padding: 120px 20px 60px;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,255,136,0.05) 0%, transparent 70%);
+      position: relative;
+    }
+    .notes-hero h1 { font-size: clamp(24px, 3.5vw, 38px); margin-bottom: 8px; }
+    .notes-hero p { color: var(--text-secondary); font-size: 15px; }
+    .notes-hero .cat-meta { margin-top: 12px; font-size: 14px; color: var(--text-secondary); }
+    .notes-hero .cat-meta span { margin: 0 12px; }
+    .breadcrumb-wrap {
+      max-width: 1000px; margin: 0 auto; padding: 100px 20px 0;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; color: var(--text-secondary);
+    }
+    .breadcrumb-wrap a { color: var(--accent-primary); text-decoration: none; }
+    .breadcrumb-wrap a:hover { text-decoration: underline; }
+    .breadcrumb-wrap i { font-size: 10px; }
+    .notes-container { max-width: 1000px; margin: 0 auto; padding: 20px 20px 60px; }
+    .subcategory-block {
+      margin-bottom: 36px;
+    }
+    .subcategory-block h2 {
+      font-size: 22px; margin-bottom: 4px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .subcategory-block .sub-desc {
+      font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;
+    }
+    .page-list {
+      display: grid; gap: 8px;
+    }
+    .page-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 10px;
+      transition: all 0.25s;
+      text-decoration: none; color: inherit;
+    }
+    .page-item:hover {
+      background: rgba(0,255,136,0.03);
+      border-color: rgba(0,255,136,0.15);
+      transform: translateX(4px);
+    }
+    .page-item i { color: var(--accent-primary); font-size: 14px; width: 20px; text-align: center; }
+    .page-item .page-title { flex: 1; font-size: 15px; font-weight: 500; }
+    .page-item .page-meta { font-size: 12px; color: var(--text-secondary); white-space: nowrap; }
+    .no-sub {
+      text-align: center; padding: 40px; color: var(--text-secondary);
+    }
+    .no-sub i { font-size: 32px; opacity: 0.3; margin-bottom: 12px; display: block; }
+    .uncategorized-pages { margin-top: 12px; }
+    .loader { text-align: center; padding: 60px 0; color: var(--text-secondary); }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo"><i class="fas fa-paw"></i> VetCrack</a>
+      <div class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/notes">Free Notes</a></li>
+        <li><a href="/medicines">Medicines</a></li>
+        <li><a href="/pages/login.html">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="breadcrumb-wrap" id="breadcrumbWrap">
+    <a href="/"><i class="fas fa-home"></i></a>
+    <i class="fas fa-chevron-right"></i>
+    <a href="/notes">Free Notes</a>
+    <i class="fas fa-chevron-right"></i>
+    <span id="breadcrumbCat">Loading...</span>
+  </div>
+
+  <section class="notes-hero" id="catHero">
+    <h1 id="catTitle"><i class="fas fa-spinner fa-spin"></i></h1>
+    <p id="catDesc"></p>
+    <div class="cat-meta" id="catMeta"></div>
+  </section>
+
+  <div class="notes-container" id="notesContainer">
+    <div class="loader"><i class="fas fa-spinner fa-spin"></i> Loading...</div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 VetCrack. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const slug = window.location.pathname.split('/').filter(Boolean).pop();
+    let currentCategory = null;
+    let currentSubcategories = [];
+    let currentPages = [];
+
+    async function loadCategory() {
+      try {
+        const catRes = await fetch(`/api/note-categories/${slug}`);
+        const catData = await catRes.json();
+        if (!catRes.ok) throw new Error(catData.error);
+        currentCategory = catData.category;
+
+        document.title = `${currentCategory.name} - VetCrack Notes`;
+        document.getElementById('breadcrumbCat').textContent = currentCategory.name;
+
+        const iconMap = {
+          'file-text': 'fa-file-alt', 'book': 'fa-book', 'heart': 'fa-heartbeat',
+          'brain': 'fa-brain', 'bone': 'fa-bone', 'microscope': 'fa-microscope',
+          'pills': 'fa-pills', 'syringe': 'fa-syringe', 'tooth': 'fa-tooth',
+          'eye': 'fa-eye', 'ear': 'fa-ear', 'lung': 'fa-lungs',
+          'dna': 'fa-dna', 'flask': 'fa-flask'
+        };
+        const iconClass = iconMap[currentCategory.icon] || 'fa-file-alt';
+
+        document.getElementById('catTitle').innerHTML = `<i class="fas ${iconClass}" style="color:var(--accent-primary);margin-right:12px;"></i> ${currentCategory.name}`;
+        document.getElementById('catDesc').textContent = currentCategory.description || '';
+        document.getElementById('catMeta').innerHTML = `
+          <span><i class="fas fa-folder"></i> ${currentCategory.subcategory_count || 0} topics</span>
+          <span><i class="fas fa-file"></i> ${currentCategory.page_count || 0} pages</span>
+        `;
+
+        await Promise.all([loadSubcategories(), loadPages()]);
+        renderContent();
+      } catch (err) {
+        document.getElementById('notesContainer').innerHTML = `<div class="loader" style="color:#ef4444;"><i class="fas fa-exclamation-triangle"></i> Failed to load: ${err.message}</div>`;
+      }
+    }
+
+    async function loadSubcategories() {
+      const res = await fetch(`/api/note-subcategories?category_id=${currentCategory.id}&status=active`);
+      const data = await res.json();
+      currentSubcategories = data.subcategories || [];
+    }
+
+    async function loadPages() {
+      const res = await fetch(`/api/note-pages?category_id=${currentCategory.id}&status=active`);
+      const data = await res.json();
+      currentPages = data.pages || [];
+    }
+
+    function renderContent() {
+      const container = document.getElementById('notesContainer');
+
+      const pagesBySubcategory = {};
+      currentPages.forEach(p => {
+        const key = p.subcategory_id || 'uncategorized';
+        if (!pagesBySubcategory[key]) pagesBySubcategory[key] = [];
+        pagesBySubcategory[key].push(p);
+      });
+
+      const subWithPages = currentSubcategories.filter(s => pagesBySubcategory[s.id] && pagesBySubcategory[s.id].length > 0);
+      const uncategorized = pagesBySubcategory['uncategorized'] || [];
+
+      if (!subWithPages.length && !uncategorized.length) {
+        container.innerHTML = '<div class="no-sub"><i class="fas fa-folder-open"></i><p>No pages available in this category yet</p></div>';
+        return;
+      }
+
+      let html = '';
+
+      subWithPages.forEach(sub => {
+        const pages = pagesBySubcategory[sub.id] || [];
+        html += `
+          <div class="subcategory-block">
+            <h2><i class="fas fa-folder-open" style="color:var(--accent-primary);font-size:18px;margin-right:8px;"></i>${sub.name}</h2>
+            ${sub.description ? `<div class="sub-desc">${sub.description}</div>` : ''}
+            <div class="page-list">
+              ${pages.map(p => `
+                <a href="/notes/${slug}/${p.slug}" class="page-item">
+                  <i class="fas fa-file-alt"></i>
+                  <span class="page-title">${p.title}</span>
+                  <span class="page-meta">${p.view_count || 0} views</span>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      if (uncategorized.length) {
+        html += `
+          <div class="subcategory-block">
+            <h2><i class="fas fa-files" style="color:var(--accent-primary);font-size:18px;margin-right:8px;"></i>Pages</h2>
+            <div class="page-list">
+              ${uncategorized.map(p => `
+                <a href="/notes/${slug}/${p.slug}" class="page-item">
+                  <i class="fas fa-file-alt"></i>
+                  <span class="page-title">${p.title}</span>
+                  <span class="page-meta">${p.view_count || 0} views</span>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      container.innerHTML = html;
+    }
+
+    document.addEventListener('DOMContentLoaded', loadCategory);
+  </script>
+</body>
+</html>

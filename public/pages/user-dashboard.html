@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dashboard - VetCrack</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<body>
+  <nav class="navbar glass">
+    <div class="nav-container">
+      <a href="/" class="nav-logo"><i class="fas fa-paw"></i> <span>VetCrack</span></a>
+      <div class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/">Courses</a></li>
+        <li><a href="#" class="active">Dashboard</a></li>
+        <li><a href="#" id="userLogoutBtn">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <div class="container">
+      <div class="dashboard-header glass">
+        <div class="welcome-section">
+          <h2>Welcome back, <span id="userName">Student</span>!</h2>
+          <p>Continue your veterinary learning journey</p>
+        </div>
+        <div class="profile-section">
+          <div class="profile-info">
+            <span id="userEmail" class="text-muted"></span>
+            <span class="badge badge-user">Student</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-stats">
+        <div class="stat-card glass">
+          <i class="fas fa-book-open"></i>
+          <span class="stat-num" id="purchasedCount">0</span>
+          <span>Purchased Courses</span>
+        </div>
+        <div class="stat-card glass">
+          <i class="fas fa-file-pdf"></i>
+          <span class="stat-num" id="pdfsViewed">0</span>
+          <span>PDFs Viewed</span>
+        </div>
+        <div class="stat-card glass">
+          <i class="fas fa-clock"></i>
+          <span class="stat-num" id="continueCount">0</span>
+          <span>Continue Learning</span>
+        </div>
+      </div>
+
+      <section class="purchased-courses">
+        <h3><i class="fas fa-check-circle" style="color:var(--accent-primary);"></i> My Purchased Courses</h3>
+        <div class="courses-grid" id="purchasedCoursesGrid">
+          <div class="loader"><i class="fas fa-spinner fa-spin"></i> Loading your courses...</div>
+        </div>
+      </section>
+
+      <section class="available-courses" style="margin-top:32px;">
+        <h3><i class="fas fa-lock" style="color:var(--warning);"></i> Available Courses</h3>
+        <div class="courses-grid" id="availableCoursesGrid">
+          <div class="loader"><i class="fas fa-spinner fa-spin"></i> Loading...</div>
+        </div>
+      </section>
+
+      <section class="review-section glass" id="reviewSection" style="margin-top:32px;padding:24px;border-radius:var(--radius);">
+        <h3><i class="fas fa-star"></i> Review VetCrack</h3>
+        <p class="text-muted">Share your experience with the VetCrack community. Your review will appear on the homepage!</p>
+        <form id="reviewForm" style="margin-top:16px;">
+          <div class="form-group">
+            <label>Your Rating</label>
+            <div id="reviewStars" data-value="0" style="display:flex;gap:4px;font-size:28px;cursor:pointer;">
+              <i class="fas fa-star" data-star="1" style="color:var(--text-secondary);"></i>
+              <i class="fas fa-star" data-star="2" style="color:var(--text-secondary);"></i>
+              <i class="fas fa-star" data-star="3" style="color:var(--text-secondary);"></i>
+              <i class="fas fa-star" data-star="4" style="color:var(--text-secondary);"></i>
+              <i class="fas fa-star" data-star="5" style="color:var(--text-secondary);"></i>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Your Qualification (e.g., MVSc, Veterinary Surgeon)</label>
+            <input type="text" id="reviewQualification" placeholder="e.g., MVSc, Veterinary Surgeon" style="width:100%;padding:12px;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-primary);font-family:inherit;">
+          </div>
+          <div class="form-group">
+            <label>Your Review</label>
+            <textarea id="reviewText" rows="4" placeholder="Tell others what you think about VetCrack..." style="width:100%;padding:12px;border-radius:8px;border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-primary);font-family:inherit;resize:vertical;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary glow"><i class="fas fa-paper-plane"></i> Submit Review</button>
+          <div id="reviewMsg" class="form-message"></div>
+        </form>
+      </section>
+
+      <section class="test-results" style="margin-top:32px;">
+        <h3><i class="fas fa-chart-bar" style="color:var(--accent-primary);"></i> My Test Results</h3>
+        <div id="testResultsList"><div class="loader"><i class="fas fa-spinner fa-spin"></i> Loading test results...</div></div>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="../js/firebase-config.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/user-dashboard.js"></script>
+</body>
+</html>

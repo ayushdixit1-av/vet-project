@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VetCrack - Premium Veterinary Courses</title>
+  <meta name="description" content="VetCrack - India's premium veterinary course platform. Learn from experts, access free courses, and advance your career.">
+  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar glass" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <i class="fas fa-paw"></i>
+        <span>VetCrack</span>
+      </a>
+      <div class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#free-courses">Free Courses</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="/notes"><i class="fas fa-book-open"></i> Free Notes</a></li>
+        <li><a href="/medicines"><i class="fas fa-capsules"></i> Medicines</a></li>
+        <li><a href="pages/login.html" id="loginLink">Login</a></li>
+        <li><a href="pages/register.html" id="registerLink">Register</a></li>
+        <li><a href="pages/admin-dashboard.html" id="adminLink" style="display:none;">Admin</a></li>
+        <li><a href="pages/user-dashboard.html" id="dashboardLink" style="display:none;">Dashboard</a></li>
+        <li><a href="#" id="logoutBtn" style="display:none;">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-bg"><svg viewBox="0 0 1000 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00ff88"/><stop offset="100%" stop-color="#00ccff"/>
+      </linearGradient>
+      <linearGradient id="g2" x1="100%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#00ccff"/><stop offset="100%" stop-color="#00ff88"/>
+      </linearGradient>
+      <pattern id="hex" width="60" height="103.92" patternUnits="userSpaceOnUse">
+        <path d="M30 0 L60 17.32 L60 51.96 L30 69.28 L0 51.96 L0 17.32 Z" stroke="url(#g1)" stroke-width="0.6" fill="none" opacity="0.12"/>
+        <path d="M30 103.92 L60 86.6 L60 51.96 L30 34.64 L0 51.96 L0 86.6 Z" stroke="url(#g2)" stroke-width="0.6" fill="none" opacity="0.08"/>
+      </pattern>
+    </defs>
+    <rect width="1000" height="650" fill="url(#hex)"/>
+  </svg></div>
+
+  <section class="hero" id="home">
+    <div class="hero-bg">
+    </svg></div></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Master Veterinary Science <span class="gradient-text">With VetCrack</span></h1>
+      <p class="hero-subtitle">India's premier platform for veterinary professionals. Learn from industry experts with our comprehensive course library.</p>
+      <div class="hero-buttons">
+        <a href="#courses" class="btn btn-primary glow"><i class="fas fa-play"></i> Explore Courses</a>
+        <a href="#free-courses" class="btn btn-secondary"><i class="fas fa-graduation-cap"></i> Free Resources</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-number" data-target="100">0</span><span class="stat-label">100+ Video Lectures</span></div>
+        <div class="stat-item"><span class="stat-number" data-target="12">0</span><span class="stat-label">12+ Instructors</span></div>
+        <div class="stat-item"><span class="stat-number" data-target="200">0</span><span class="stat-label">200+ PDFs</span></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="youtube-section" id="youtube">
+    <div class="container">
+      <div class="section-header">
+        <h2><i class="fab fa-youtube" style="color:#ff4444;"></i> Our <span class="gradient-text">YouTube</span></h2>
+        <p>Watch veterinary lectures, case studies, and exam tips on our channel</p>
+      </div>
+      <div class="youtube-grid">
+        <div class="youtube-featured">
+          <div class="youtube-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/vnteUNh_DDc" title="Latest Veterinary Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="youtube-video-info">
+            <h3>Latest Video</h3>
+            <p>Watch our most recent veterinary lecture and exam preparation content</p>
+            <a href="https://www.youtube.com/@VETCRACK" target="_blank" rel="noopener" class="btn btn-primary glow" style="background:#ff4444;border-color:#ff4444;display:inline-flex;align-items:center;gap:8px;">
+              <i class="fab fa-youtube"></i> Subscribe to @VETCRACK
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <div class="container">
+      <div class="section-header">
+        <h2>Ask <span class="gradient-text">VetBot AI</span></h2>
+        <p>Your intelligent veterinary course assistant — ask anything about courses, topics, or VetCrack</p>
+      </div>
+      <div class="vetbot-search-area">
+        <div class="vetbot-search-box">
+          <i class="fas fa-robot vetbot-search-icon"></i>
+          <input type="text" id="vetbotBigInput" placeholder="Ask about courses, veterinary topics, or anything on VetCrack..." autocomplete="off">
+          <button id="vetbotBigSend" class="btn btn-primary glow"><i class="fas fa-paper-plane"></i> Ask</button>
+          <button id="vetbotBigMic" class="vetbot-mic-btn" title="Voice input"><i class="fas fa-microphone"></i></button>
+          <button id="vetbotBigLang" class="vetbot-lang-btn" style="flex-shrink:0;" title="Switch to Hinglish">EN</button>
+        </div>
+        <div class="vetbot-feature-tip" id="vetbotFeatureTip">
+          <button class="vetbot-feature-close" id="vetbotFeatureClose">&times;</button>
+          <div class="vetbot-feature-title"><i class="fas fa-sparkles"></i> How to use VetBot AI</div>
+          <ul class="vetbot-feature-list">
+            <li><i class="fas fa-comment"></i> Ask any veterinary question — diseases, medicines, procedures, breeds</li>
+            <li><i class="fas fa-language"></i> Click <strong>EN</strong> to switch to <strong>Hinglish</strong> answers</li>
+            <li><i class="fas fa-graduation-cap"></i> Get <strong>7-mark exam-level</strong> detailed answers</li>
+            <li><i class="fas fa-database"></i> Answers use knowledge from VetCrack's database</li>
+            <li><i class="fas fa-coins"></i> <strong>100 free credits</strong> on signup — 2 credits = 1 question — <a href="/pages/credits.html" style="color:#00ff88;text-decoration:underline;">Buy more</a></li>
+          </ul>
+        </div>
+        <div class="upcoming-features">
+          <div class="upcoming-track" id="upcomingTrack">
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-x-ray"></i></div>
+              <div class="upcoming-title">AI Image Diagnosis</div>
+              <div class="upcoming-desc">Upload X-ray, ultrasound or symptom photos for AI analysis</div>
+            </div>
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-file-pdf"></i></div>
+              <div class="upcoming-title">PDF Chat</div>
+              <div class="upcoming-desc">Chat directly with your study PDFs — ask questions, get summaries</div>
+            </div>
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-question-circle"></i></div>
+              <div class="upcoming-title">Quiz Generator</div>
+              <div class="upcoming-desc">Auto-generate MCQs from any topic to test your knowledge</div>
+            </div>
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-microphone-alt"></i></div>
+              <div class="upcoming-title">Voice Assistant</div>
+              <div class="upcoming-desc">Ask questions hands-free with voice input support</div>
+            </div>
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="upcoming-title">Study Tracker</div>
+              <div class="upcoming-desc">Track your progress across courses and identify weak areas</div>
+            </div>
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-users"></i></div>
+              <div class="upcoming-title">Community Cases</div>
+              <div class="upcoming-desc">Discuss real clinical cases with fellow veterinary students</div>
+            </div>
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-x-ray"></i></div>
+              <div class="upcoming-title">AI Image Diagnosis</div>
+              <div class="upcoming-desc">Upload X-ray, ultrasound or symptom photos for AI analysis</div>
+            </div>
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-file-pdf"></i></div>
+              <div class="upcoming-title">PDF Chat</div>
+              <div class="upcoming-desc">Chat directly with your study PDFs — ask questions, get summaries</div>
+            </div>
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-question-circle"></i></div>
+              <div class="upcoming-title">Quiz Generator</div>
+              <div class="upcoming-desc">Auto-generate MCQs from any topic to test your knowledge</div>
+            </div>
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-microphone-alt"></i></div>
+              <div class="upcoming-title">Voice Assistant</div>
+              <div class="upcoming-desc">Ask questions hands-free with voice input support</div>
+            </div>
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="upcoming-title">Study Tracker</div>
+              <div class="upcoming-desc">Track your progress across courses and identify weak areas</div>
+            </div>
+            <div class="upcoming-card">
+              <div class="upcoming-icon"><i class="fas fa-users"></i></div>
+              <div class="upcoming-title">Community Cases</div>
+              <div class="upcoming-desc">Discuss real clinical cases with fellow veterinary students</div>
+            </div>
+          </div>
+        </div>
+        <div id="vetbotBigResults" class="vetbot-results" style="display:none;">
+          <div class="vetbot-result-msg" id="vetbotBigAnswer"></div>
+          <div class="vetbot-result-actions">
+            <button class="vetbot-clear-btn" id="vetbotBigClear"><i class="fas fa-times"></i> Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="courses-section" id="courses">
+    <div class="container">
+      <div class="section-header">
+        <h2>Premium <span class="gradient-text">Courses</span></h2>
+        <p>Unlock your potential with our expert-led veterinary courses</p>
+      </div>
+      <div class="course-filters">
+        <input type="text" id="courseSearch" placeholder="Search courses..." class="search-input">
+        <select id="categoryFilter" class="filter-select">
+          <option value="all">All Categories</option>
+          <option value="surgery">Surgery</option>
+          <option value="medicine">Medicine</option>
+          <option value="anatomy">Anatomy</option>
+          <option value="pathology">Pathology</option>
+          <option value="pharmacology">Pharmacology</option>
+        </select>
+        <select id="difficultyFilter" class="filter-select">
+          <option value="all">All Levels</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </div>
+      <div class="courses-grid" id="coursesGrid">
+        <div class="loader"><i class="fas fa-spinner fa-spin"></i> Loading courses...</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="free-courses-section" id="free-courses">
+    <div class="container">
+      <div class="section-header">
+        <h2>Free <span class="gradient-text">Courses</span></h2>
+        <p>Start learning today with our free veterinary resources</p>
+      </div>
+      <div class="courses-grid" id="freeCoursesGrid">
+        <div class="loader"><i class="fas fa-spinner fa-spin"></i> Loading free courses...</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-section" id="blogs">
+    <div class="container">
+      <div class="section-header">
+        <h2>Latest <span class="gradient-text">Blogs</span></h2>
+        <p>Insights, tips, and updates from veterinary experts</p>
+      </div>
+      <div class="blog-filters">
+        <input type="text" id="blogSearch" placeholder="Search blogs..." class="search-input">
+        <select id="blogCategoryFilter" class="filter-select">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+      <div class="blog-grid" id="blogGrid">
+        <div class="loader"><i class="fas fa-spinner fa-spin"></i> Loading blogs...</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Our <span class="gradient-text">Students Say</span></h2>
+      </div>
+      <div class="testimonial-grid" id="testimonialGrid"></div>
+    </div>
+  </section>
+
+  <section class="founder-section">
+    <div class="container">
+      <div class="founder-card glass">
+        <div class="founder-image">
+          <img id="founderPageImage" src="" alt="Founder" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="founder-content">
+          <h3 id="founderPageName">Dr. Ayush Dixit</h3>
+          <span id="founderPageTitle" class="founder-title">Founder & CEO, VetCrack</span>
+          <p id="founderPageDesc">"VetCrack was born from a vision to make quality veterinary education accessible to every aspiring professional in India. We combine cutting-edge technology with expert knowledge to create an unparalleled learning experience."</p>
+          <div class="founder-stats">
+            <div id="founderPageExp"><i class="fas fa-certificate"></i> 15+ Years Experience</div>
+            <div id="founderPageDegree"><i class="fas fa-university"></i> MVSc, PhD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ratings-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Platform <span class="gradient-text">Stats</span></h2>
+      </div>
+      <div class="ratings-grid">
+        <div class="rating-card glass">
+          <i class="fas fa-video rating-icon"></i>
+          <span class="rating-number">100+</span>
+          <p>Video Lectures</p>
+        </div>
+        <div class="rating-card glass">
+          <i class="fas fa-chalkboard-teacher rating-icon"></i>
+          <span class="rating-number">12+</span>
+          <p>Instructors</p>
+        </div>
+        <div class="rating-card glass">
+          <i class="fas fa-file-pdf rating-icon"></i>
+          <span class="rating-number">200+</span>
+          <p>PDFs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+        <p>Everything you need to know about VetCrack</p>
+      </div>
+      <div class="faq-grid" id="faqGrid"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4><i class="fas fa-paw"></i> VetCrack</h4>
+          <p>India's premier veterinary education platform empowering professionals with quality learning resources.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/vetcr_ack?igsh=Zmh4YThrY281ZDJ0" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@VETCRACK" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#free-courses">Free Courses</a></li>
+            <li><a href="/notes">Free Notes</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="pages/login.html">Login</a></li>
+            <li><a href="pages/register.html">Register</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="#">Surgery</a></li>
+            <li><a href="#">Medicine</a></li>
+            <li><a href="#">Anatomy</a></li>
+            <li><a href="#">Pathology</a></li>
+            <li><a href="#">Pharmacology</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><i class="fas fa-envelope"></i> vetcrack@gmail.com</li>
+            <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+            <li><i class="fas fa-map-marker-alt"></i> New Delhi, India</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 VetCrack. All rights reserved. | Made with <i class="fas fa-heart"></i> for veterinary professionals</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js?v=9"></script>
+  <script>
+    async function loadFounderPage() {
+      try {
+        const res = await fetch('/api/settings/founder');
+        const data = await res.json();
+        if (!data.founder) return;
+        const f = data.founder;
+        if (f.founder_name) document.getElementById('founderPageName').textContent = f.founder_name;
+        if (f.founder_title) document.getElementById('founderPageTitle').textContent = f.founder_title;
+        if (f.founder_desc) document.getElementById('founderPageDesc').textContent = '"' + f.founder_desc + '"';
+        if (f.founder_exp) document.getElementById('founderPageExp').innerHTML = '<i class="fas fa-certificate"></i> ' + f.founder_exp;
+        if (f.founder_degree) document.getElementById('founderPageDegree').innerHTML = '<i class="fas fa-university"></i> ' + f.founder_degree;
+        if (f.founder_image) document.getElementById('founderPageImage').src = f.founder_image;
+      } catch (e) { console.warn('Could not load founder data'); }
+    }
+    loadFounderPage();
+  </script>
+
+  <!-- VetBot AI Course Assistant -->
+  <div id="vetbot-widget">
+    <button id="vetbot-toggle" aria-label="Open AI Assistant">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+    <div id="vetbot-panel">
+      <div id="vetbot-header">
+        <div id="vetbot-header-info">
+          <div id="vetbot-avatar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <div id="vetbot-name">VetBot AI</div>
+            <div id="vetbot-status">Online</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;position:relative;">
+          <button id="vetbot-lang-toggle" class="vetbot-lang-btn" title="Switch to Hinglish">EN</button>
+          <div id="vetbot-lang-tip" class="vetbot-tip">
+            <div class="vetbot-tip-arrow"></div>
+            <span>Try Hinglish!</span>
+          </div>
+          <button id="vetbot-close" aria-label="Close chat">&times;</button>
+        </div>
+      </div>
+      <div id="vetbot-messages">
+        <div class="vetbot-msg vetbot-msg-bot">
+          <div class="vetbot-msg-content">Hi! I'm VetBot, your AI course assistant. Ask me about veterinary topics, courses, or anything on VetCrack!</div>
+        </div>
+      </div>
+      <div id="vetbot-credit-bar">
+        <span id="vetbot-credit-text">Loading credits...</span>
+        <a id="vetbot-buy-link" href="/pages/credits.html" target="_blank" style="display:none;">Buy credits &rarr;</a>
+      </div>
+      <div id="vetbot-input-area">
+        <input type="text" id="vetbot-input" placeholder="Ask me anything..." autocomplete="off">
+        <button id="vetbot-mic" class="vetbot-mic-btn widget-mic" title="Voice input"><i class="fas fa-microphone"></i></button>
+        <button id="vetbot-send" aria-label="Send message">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #vetbot-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99999;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    #vetbot-toggle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #00ff88, #00ccff);
+      color: #0a0a1a;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,255,136,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    #vetbot-toggle:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 28px rgba(0,255,136,0.6);
+    }
+    #vetbot-toggle svg { transition: transform 0.3s; }
+    #vetbot-widget.open #vetbot-toggle svg { transform: rotate(45deg); }
+    #vetbot-panel {
+      display: none;
+      position: absolute;
+      bottom: 68px;
+      right: 0;
+      width: 360px;
+      max-width: calc(100vw - 48px);
+      height: 520px;
+      max-height: calc(100vh - 120px);
+      background: #0d0d24;
+      border: 1px solid rgba(0,255,136,0.15);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      flex-direction: column;
+    }
+    #vetbot-widget.open #vetbot-panel { display: flex; }
+    #vetbot-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, rgba(0,255,136,0.12), rgba(0,204,255,0.08));
+      border-bottom: 1px solid rgba(0,255,136,0.1);
+    }
+    #vetbot-header-info { display: flex; align-items: center; gap: 10px; }
+    #vetbot-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00ff88, #00ccff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0a0a1a;
+    }
+    #vetbot-name { font-weight: 600; font-size: 14px; color: #e0e0e0; }
+    #vetbot-status { font-size: 11px; color: #00ff88; }
+    #vetbot-close {
+      background: none; border: none; color: #888;
+      font-size: 22px; cursor: pointer; line-height: 1; padding: 0 4px;
+    }
+    #vetbot-close:hover { color: #fff; }
+    .vetbot-lang-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(0,255,136,0.2);
+      color: #00ff88;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.5px;
+    }
+    .vetbot-lang-btn:hover {
+      background: rgba(0,255,136,0.1);
+      border-color: rgba(0,255,136,0.4);
+    }
+    .vetbot-lang-btn.hinglish {
+      background: rgba(255,193,7,0.15);
+      border-color: rgba(255,193,7,0.3);
+      color: #ffc107;
+    }
+    .vetbot-lang-btn.hinglish:hover {
+      background: rgba(255,193,7,0.2);
+    }
+    .vetbot-tip {
+      position: absolute;
+      top: -32px;
+      right: -4px;
+      background: #ffc107;
+      color: #0a0a1a;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .vetbot-tip.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .vetbot-tip-arrow {
+      position: absolute;
+      bottom: -5px;
+      right: 16px;
+      width: 10px;
+      height: 10px;
+      background: #ffc107;
+      transform: rotate(45deg);
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+    }
+    #vetbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: rgba(0,0,0,0.2);
+    }
+    #vetbot-messages::-webkit-scrollbar { width: 4px; }
+    #vetbot-messages::-webkit-scrollbar-track { background: transparent; }
+    #vetbot-messages::-webkit-scrollbar-thumb { background: rgba(0,255,136,0.3); border-radius: 4px; }
+    .vetbot-msg {
+      display: flex;
+      flex-direction: column;
+      max-width: 85%;
+      animation: vetbotFadeIn 0.25s ease;
+    }
+    @keyframes vetbotFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .vetbot-msg-bot { align-self: flex-start; }
+    .vetbot-msg-user { align-self: flex-end; }
+    .vetbot-msg-content {
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: #e0e0e0;
+    }
+    .vetbot-msg-bot .vetbot-msg-content {
+      background: rgba(255,255,255,0.06);
+      border-bottom-left-radius: 4px;
+    }
+    .vetbot-msg-user .vetbot-msg-content {
+      background: linear-gradient(135deg, rgba(0,255,136,0.2), rgba(0,204,255,0.15));
+      border-bottom-right-radius: 4px;
+    }
+    .vetbot-msg-content p { margin: 0 0 6px; }
+    .vetbot-msg-content p:last-child { margin-bottom: 0; }
+    .vetbot-msg-content strong { color: #00ff88; }
+    .vetbot-msg-content ul, .vetbot-msg-content ol { margin: 4px 0; padding-left: 18px; }
+    .vetbot-images { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .vetbot-img { width: 100%; max-height: 180px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); cursor: pointer; transition: opacity 0.2s; }
+    .vetbot-img:hover { opacity: 0.85; }
+    .vetbot-msg-content li { margin-bottom: 2px; }
+    #vetbot-credit-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 14px;
+      font-size: 11px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      background: rgba(0,0,0,0.3);
+    }
+    #vetbot-credit-text { color: #666; }
+    #vetbot-buy-link {
+      color: #00ff88;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 11px;
+      padding: 2px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(0,255,136,0.2);
+      transition: all 0.2s;
+    }
+    #vetbot-buy-link:hover {
+      background: rgba(0,255,136,0.1);
+      border-color: rgba(0,255,136,0.4);
+    }
+    #vetbot-input-area {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.25);
+    }
+    #vetbot-input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #e0e0e0;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    #vetbot-input:focus { border-color: rgba(0,255,136,0.4); }
+    #vetbot-input::placeholder { color: #666; }
+    #vetbot-send {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #00ff88, #00ccff);
+      color: #0a0a1a;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
+    #vetbot-send:hover { opacity: 0.85; }
+    #vetbot-send:disabled { opacity: 0.4; cursor: not-allowed; }
+    .vetbot-typing .vetbot-msg-content::after {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: #888;
+      border-radius: 50%;
+      animation: vetbotDotPulse 1.2s infinite;
+    }
+    @keyframes vetbotDotPulse {
+      0%, 20% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    .vetbot-typing .vetbot-msg-content { min-width: 48px; }
+
+    .vetbot-section {
+      padding: 60px 0 80px;
+      position: relative;
+    }
+    .vetbot-search-area {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .vetbot-search-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(0,255,136,0.15);
+      border-radius: 16px;
+      padding: 6px 6px 6px 20px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .vetbot-search-box:focus-within {
+      border-color: rgba(0,255,136,0.4);
+      box-shadow: 0 0 30px rgba(0,255,136,0.08);
+    }
+    .vetbot-search-icon {
+      font-size: 22px;
+      color: rgba(0,255,136,0.6);
+      flex-shrink: 0;
+    }
+    .vetbot-search-box input {
+      flex: 1;
+      background: none;
+      border: none;
+      padding: 16px 0;
+      font-size: 16px;
+      color: #e0e0e0;
+      outline: none;
+      min-width: 0;
+    }
+    .vetbot-search-box input::placeholder { color: #555; }
+    .vetbot-search-box .btn {
+      padding: 12px 28px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .vetbot-results {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,255,136,0.08);
+      border-radius: 14px;
+      padding: 24px;
+      animation: vetbotFadeIn 0.3s ease;
+    }
+    .vetbot-result-msg {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #d0d0d0;
+    }
+    .vetbot-result-msg strong { color: #00ff88; }
+    .vetbot-result-msg p { margin: 0 0 8px; }
+    .vetbot-result-msg p:last-child { margin-bottom: 0; }
+    .vetbot-result-msg ul, .vetbot-result-msg ol { margin: 6px 0; padding-left: 20px; }
+    .vetbot-result-msg li { margin-bottom: 4px; }
+    .vetbot-result-actions { margin-top: 16px; display: flex; gap: 8px; }
+    .vetbot-clear-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #888;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .vetbot-clear-btn:hover {
+      background: rgba(255,255,255,0.1);
+      color: #e0e0e0;
+    }
+    .vetbot-feature-tip {
+      margin-top: 20px;
+      background: linear-gradient(135deg, rgba(0,255,136,0.08), rgba(0,204,255,0.06));
+      border: 1px solid rgba(0,255,136,0.15);
+      border-radius: 14px;
+      padding: 24px 28px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    .vetbot-feature-tip.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .vetbot-feature-close {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 4px;
+    }
+    .vetbot-feature-close:hover { color: #fff; }
+    .vetbot-feature-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #00ff88;
+      margin-bottom: 14px;
+    }
+    .vetbot-feature-title i { margin-right: 8px; }
+    .vetbot-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .vetbot-feature-list li {
+      font-size: 16px;
+      color: #c0c0c0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.4;
+    }
+    .vetbot-feature-list li i {
+      width: 20px;
+      color: rgba(0,255,136,0.6);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .vetbot-feature-list li strong { color: #e0e0e0; }
+    .vetbot-feature-list li a { font-weight: 600; }
+    .vetbot-mic-btn {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent;
+      color: #aaa;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .vetbot-mic-btn:hover {
+      border-color: rgba(0,255,136,0.3);
+      color: #00ff88;
+      background: rgba(0,255,136,0.06);
+    }
+    .vetbot-mic-btn.recording {
+      border-color: #ff4444;
+      color: #ff4444;
+      background: rgba(255,68,68,0.1);
+      animation: micPulse 1s ease-in-out infinite;
+    }
+    .vetbot-mic-btn.recording i { animation: micSpin 0.3s ease-in-out infinite alternate; }
+    @keyframes micPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,68,68,0.3); }
+      50% { box-shadow: 0 0 0 8px rgba(255,68,68,0); }
+    }
+    @keyframes micSpin {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.15); }
+    }
+    .widget-mic { width: 34px; height: 34px; font-size: 14px; }
+    .vetbot-loading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #888;
+      font-size: 14px;
+    }
+    .vetbot-loading i { color: #00ff88; }
+    .youtube-section {
+      padding: 60px 0;
+      background: rgba(255,255,255,0.01);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .youtube-grid {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .youtube-featured {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .youtube-featured:hover {
+      border-color: rgba(255,68,68,0.15);
+      box-shadow: 0 8px 30px rgba(255,68,68,0.05);
+    }
+    .youtube-video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #000;
+    }
+    .youtube-video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .youtube-video-info {
+      padding: 24px 28px;
+      text-align: center;
+    }
+    .youtube-video-info h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #e0e0e0;
+      margin-bottom: 8px;
+    }
+    .youtube-video-info p {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .upcoming-features {
+      margin-top: 24px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 20px 0;
+    }
+    .upcoming-features::before {
+      content: '🚀 Coming Soon';
+      display: block;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffcc00;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .upcoming-track {
+      display: flex;
+      gap: 16px;
+      padding: 0 16px;
+      width: max-content;
+      animation: scrollLeft 30s linear infinite;
+    }
+    .upcoming-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .upcoming-card {
+      flex-shrink: 0;
+      width: 200px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .upcoming-card:hover {
+      border-color: rgba(0,255,136,0.3);
+      background: rgba(0,255,136,0.05);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,255,136,0.08);
+    }
+    .upcoming-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+      color: #00ff88;
+    }
+    .upcoming-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e0e0e0;
+      margin-bottom: 8px;
+    }
+    .upcoming-desc {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.4;
+    }
+    @media (max-width: 640px) {
+      .vetbot-search-box { flex-wrap: wrap; padding: 12px 16px; }
+      .vetbot-search-box input { padding: 10px 0; width: 100%; }
+      .vetbot-search-box .btn { width: 100%; justify-content: center; }
+      .vetbot-search-icon { display: none; }
+      .upcoming-card { width: 160px; padding: 16px 12px; }
+      .upcoming-icon { font-size: 26px; }
+      .upcoming-title { font-size: 13px; }
+      .upcoming-desc { font-size: 11px; }
+    }
+  </style>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('vetbot-toggle');
+      const panel = document.getElementById('vetbot-panel');
+      const closeBtn = document.getElementById('vetbot-close');
+      const widget = document.getElementById('vetbot-widget');
+      const messagesEl = document.getElementById('vetbot-messages');
+      const inputEl = document.getElementById('vetbot-input');
+      const sendBtn = document.getElementById('vetbot-send');
+      const statusEl = document.getElementById('vetbot-status');
+
+      function getToken() {
+        return localStorage.getItem('vetcrack_token');
+      }
+
+      function getAuthHeaders() {
+        const token = getToken();
+        const headers = { 'Content-Type': 'application/json' };
+        if (token) headers['Authorization'] = 'Bearer ' + token;
+        return headers;
+      }
+
+      const langToggle = document.getElementById('vetbot-lang-toggle');
+      let useHinglish = false;
+
+      const langTip = document.getElementById('vetbot-lang-tip');
+      let tipTimer = null;
+
+      function showLangTip() {
+        if (localStorage.getItem('vetbot_lang_tip_shown')) return;
+        clearTimeout(tipTimer);
+        langTip.classList.add('show');
+        tipTimer = setTimeout(() => {
+          langTip.classList.remove('show');
+          localStorage.setItem('vetbot_lang_tip_shown', '1');
+        }, 4000);
+      }
+
+      function hideLangTip() {
+        clearTimeout(tipTimer);
+        langTip.classList.remove('show');
+        localStorage.setItem('vetbot_lang_tip_shown', '1');
+      }
+
+      langToggle.addEventListener('click', function() {
+        useHinglish = !useHinglish;
+        this.textContent = useHinglish ? 'HI' : 'EN';
+        this.classList.toggle('hinglish', useHinglish);
+        hideLangTip();
+        addMessage('Language switched to **' + (useHinglish ? 'Hinglish' : 'English') + '**', false);
+      });
+
+      const creditText = document.getElementById('vetbot-credit-text');
+      const buyLink = document.getElementById('vetbot-buy-link');
+
+      function updateCreditDisplay() {
+        const token = getToken();
+        if (!token) {
+          statusEl.textContent = 'Login to chat';
+          creditText.textContent = 'Login to use VetBot AI';
+          buyLink.style.display = 'none';
+          return;
+        }
+        fetch('/api/credits/my-credits', {
+          headers: getAuthHeaders()
+        })
+        .then(r => r.json())
+        .then(d => {
+          if (d.credits !== undefined) {
+            const c = d.credits;
+            statusEl.textContent = c + ' credits';
+            creditText.textContent = c + ' credits remaining';
+            if (c < 1) {
+              statusEl.textContent = '0 credits';
+              creditText.textContent = 'Out of credits';
+              buyLink.style.display = 'inline';
+            } else if (c < 10) {
+              buyLink.style.display = 'inline';
+              creditText.textContent = c + ' credits remaining - low';
+            } else {
+              buyLink.style.display = 'none';
+            }
+          }
+        })
+        .catch(() => {});
+      }
+
+      function togglePanel() {
+        widget.classList.toggle('open');
+        if (widget.classList.contains('open')) {
+          inputEl.focus();
+          messagesEl.scrollTop = messagesEl.scrollHeight;
+      function startVoice(inputEl, sendFn) {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) return;
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.interimResults = true;
+        recognition.continuous = false;
+        recognition.maxAlternatives = 1;
+
+        let finalised = false;
+        recognition.onresult = function(e) {
+          let transcript = '';
+          for (let i = e.resultIndex; i < e.results.length; i++) {
+            transcript += e.results[i][0].transcript;
+            if (e.results[i].isFinal) finalised = true;
+          }
+          inputEl.value = transcript;
+          inputEl.selectionStart = inputEl.selectionEnd = transcript.length;
+        };
+        recognition.onend = function() {
+          if (finalised && inputEl.value.trim()) sendFn();
+        };
+        recognition.start();
+        return recognition;
+      }
+
+      const micBtn = document.getElementById('vetbot-mic');
+      let recognition = null;
+      micBtn.addEventListener('click', function() {
+        if (recognition) {
+          recognition.abort();
+          recognition = null;
+          this.classList.remove('recording');
+          return;
+        }
+        const sr = startVoice(inputEl, sendMessage);
+        if (sr) {
+          recognition = sr;
+          this.classList.add('recording');
+          sr.onerror = function() { micBtn.classList.remove('recording'); recognition = null; };
+          sr.onend = function() { micBtn.classList.remove('recording'); recognition = null; };
+        }
+      });
+
+      updateCreditDisplay();
+          setTimeout(showLangTip, 600);
+          const lastMsg = messagesEl.querySelector('.vetbot-msg:last-child .vetbot-msg-content');
+          if (lastMsg && lastMsg.textContent.includes('Hi! I\'m VetBot')) {
+            if (!getToken()) {
+              addMessage('**Please login** to use the AI assistant. [Login](#) or [Register](#) to get started.', false);
+            }
+          }
+        }
+      }
+
+      toggle.addEventListener('click', togglePanel);
+      closeBtn.addEventListener('click', togglePanel);
+
+      function addMessage(text, isUser) {
+        const div = document.createElement('div');
+        div.className = 'vetbot-msg ' + (isUser ? 'vetbot-msg-user' : 'vetbot-msg-bot');
+        const content = document.createElement('div');
+        content.className = 'vetbot-msg-content';
+        content.innerHTML = text;
+        div.appendChild(content);
+        messagesEl.appendChild(div);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
+
+      function showTyping() {
+        const div = document.createElement('div');
+        div.className = 'vetbot-msg vetbot-msg-bot vetbot-typing';
+        div.id = 'vetbot-typing';
+        const content = document.createElement('div');
+        content.className = 'vetbot-msg-content';
+        content.textContent = '';
+        div.appendChild(content);
+        messagesEl.appendChild(div);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
+
+      function removeTyping() {
+        const el = document.getElementById('vetbot-typing');
+        if (el) el.remove();
+      }
+
+      async function sendMessage() {
+        const msg = inputEl.value.trim();
+        if (!msg) return;
+
+        if (!getToken()) {
+          addMessage('**Please login** to use the AI assistant.', false);
+          return;
+        }
+
+        addMessage(escapeHtml(msg), true);
+        inputEl.value = '';
+        sendBtn.disabled = true;
+
+        showTyping();
+
+        try {
+          const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: getAuthHeaders(),
+            body: JSON.stringify({ message: msg, language: useHinglish ? 'hinglish' : 'english' })
+          });
+          const data = await res.json();
+          removeTyping();
+
+          if (data.reply) {
+            let reply = formatReply(data.reply);
+            if (data.images && data.images.length) {
+              reply += '<div class="vetbot-images">';
+              data.images.forEach(img => {
+                reply += '<a href="' + escapeHtml(img.url) + '" target="_blank" rel="noopener"><img src="' + escapeHtml(img.url) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy" class="vetbot-img"></a>';
+              });
+              reply += '</div>';
+            }
+            if (data.creditsRemaining !== undefined) {
+              reply += '<br><br><span style="font-size:11px;color:#666;">Credits remaining: ' + data.creditsRemaining + '</span>';
+              statusEl.textContent = data.creditsRemaining + ' credits';
+            }
+            addMessage(reply, false);
+          } else if (data.error) {
+            if (data.needsPurchase) {
+              addMessage('**Out of credits!** You have used all your free credits. [**Purchase credits here**](/pages/credits.html) to continue using the AI assistant.', false);
+            } else if (data.error.includes('Authentication')) {
+              addMessage('**Please login** to use the AI assistant. [Login](#) or [Register](#) to get started.', false);
+            } else {
+              addMessage('**VetBot:** ' + escapeHtml(data.error), false);
+            }
+          }
+        } catch (err) {
+          removeTyping();
+          addMessage('**VetBot:** Sorry, I could not connect. Please check your internet and try again.', false);
+        } finally {
+          sendBtn.disabled = false;
+          inputEl.focus();
+        }
+      }
+
+      function escapeHtml(text) {
+        const d = document.createElement('div');
+        d.textContent = text;
+        return d.innerHTML;
+      }
+
+      function formatReply(text) {
+        const escaped = escapeHtml(text);
+        return escaped
+          .replace(/### (.+)/g, '<strong>$1</strong>')
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\n/g, '<br>');
+      }
+
+      sendBtn.addEventListener('click', sendMessage);
+      inputEl.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') sendMessage();
+      });
+
+      updateCreditDisplay();
+      window.addEventListener('storage', function(e) {
+        if (e.key === 'vetcrack_token') updateCreditDisplay();
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      const input = document.getElementById('vetbotBigInput');
+      const sendBtn = document.getElementById('vetbotBigSend');
+      const results = document.getElementById('vetbotBigResults');
+      const answer = document.getElementById('vetbotBigAnswer');
+      const clearBtn = document.getElementById('vetbotBigClear');
+      const langBtn = document.getElementById('vetbotBigLang');
+      let useHinglish = false;
+
+      langBtn.addEventListener('click', function() {
+        useHinglish = !useHinglish;
+        this.textContent = useHinglish ? 'HI' : 'EN';
+        this.classList.toggle('hinglish', useHinglish);
+      });
+
+      function getAuthHeaders() {
+        const token = localStorage.getItem('vetcrack_token');
+        const headers = { 'Content-Type': 'application/json' };
+        if (token) headers['Authorization'] = 'Bearer ' + token;
+        return headers;
+      }
+
+      async function askVetBot() {
+        const msg = input.value.trim();
+        if (!msg) return;
+
+        if (!localStorage.getItem('vetcrack_token')) {
+          alert('Please login to use the AI assistant.');
+          return;
+        }
+
+        sendBtn.disabled = true;
+        sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Asking...';
+        results.style.display = 'block';
+        answer.innerHTML = '<div class="vetbot-loading"><i class="fas fa-spinner fa-spin"></i> VetBot is thinking...</div>';
+
+        try {
+          const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: getAuthHeaders(),
+            body: JSON.stringify({ message: msg, language: useHinglish ? 'hinglish' : 'english' })
+          });
+          const data = await res.json();
+
+          if (data.reply) {
+            let html = formatBigReply(data.reply);
+            if (data.images && data.images.length) {
+              html += '<div class="vetbot-images" style="margin-top:12px;">';
+              data.images.forEach(img => {
+                html += '<a href="' + escapeHtml(img.url) + '" target="_blank" rel="noopener"><img src="' + escapeHtml(img.url) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy" style="width:100%;max-height:200px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,0.06);margin-bottom:6px;"></a>';
+              });
+              html += '</div>';
+            }
+            if (data.creditsRemaining !== undefined) {
+              html += '<br><br><span style="font-size:12px;color:#666;">Credits remaining: ' + data.creditsRemaining + '</span>';
+            }
+            answer.innerHTML = html;
+          } else if (data.error) {
+            if (data.needsPurchase) {
+              answer.innerHTML = '<strong>Out of credits!</strong> Please <a href="/pages/credits.html" style="color:#00ff88;">purchase credits</a> to continue using the AI assistant.';
+            } else {
+              answer.innerHTML = '<strong>VetBot:</strong> ' + escapeHtml(data.error);
+            }
+          }
+        } catch (err) {
+          answer.innerHTML = '<strong>VetBot:</strong> Sorry, could not connect. Please try again.';
+        } finally {
+          sendBtn.disabled = false;
+          sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Ask';
+        }
+      }
+
+      function formatBigReply(text) {
+        const escaped = escapeHtml(text);
+        return escaped
+          .replace(/### (.+)/g, '<strong>$1</strong>')
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\n/g, '<br>');
+      }
+
+      function escapeHtml(text) {
+        const d = document.createElement('div');
+        d.textContent = text;
+        return d.innerHTML;
+      }
+
+      sendBtn.addEventListener('click', askVetBot);
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') askVetBot();
+      });
+      clearBtn.addEventListener('click', function() {
+        results.style.display = 'none';
+        answer.innerHTML = '';
+        input.value = '';
+        input.focus();
+      });
+
+      const micBig = document.getElementById('vetbotBigMic');
+      let recBig = null;
+      micBig.addEventListener('click', function() {
+        if (recBig) { recBig.abort(); recBig = null; this.classList.remove('recording'); return; }
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) return;
+        const r = new SpeechRecognition();
+        r.lang = 'en-US'; r.interimResults = true; r.continuous = false;
+        let done = false;
+        r.onresult = function(e) {
+          let t = '';
+          for (let i = e.resultIndex; i < e.results.length; i++) { t += e.results[i][0].transcript; if (e.results[i].isFinal) done = true; }
+          input.value = t;
+        };
+        r.onerror = function() { micBig.classList.remove('recording'); recBig = null; };
+        r.onend = function() { micBig.classList.remove('recording'); recBig = null; if (done && input.value.trim()) askVetBot(); };
+        r.start();
+        recBig = r;
+        this.classList.add('recording');
+      });
+
+      const tip = document.getElementById('vetbotFeatureTip');
+      const tipClose = document.getElementById('vetbotFeatureClose');
+
+      if (tip && !localStorage.getItem('vetbot_feature_tip_hidden')) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              setTimeout(() => tip.classList.add('show'), 300);
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.3 });
+        observer.observe(tip);
+      }
+
+      if (tipClose) {
+        tipClose.addEventListener('click', function() {
+          tip.classList.remove('show');
+          localStorage.setItem('vetbot_feature_tip_hidden', '1');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
